@@ -7,6 +7,8 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
 
+import com.example.edcan_project_shareform.databinding.ActivityMainBinding;
+
 public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
@@ -17,28 +19,28 @@ public class MainActivity extends AppCompatActivity {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
 
         binding.bottomMain.setOnNavigationItemSelectedListener(item -> {
-
             switch (item.getItemId()){
                 case R.id.action_1:
-                    switchFragment(MemoFragment.newInstance());
+                    switchFragment(FirstFragment.newInstance());
                     break;
                 case R.id.action_2:
-                    switchFragment(ChatFragment.newInstance());
+                    switchFragment(SecondFragment.newInstance());
                     break;
                 case R.id.action_3:
-                    switchFragment(MoreFragment.newInstance());
+                    switchFragment(ThirdFragment.newInstance());
+                    break;
+                case R.id.action_4:
+                    switchFragment(FourthFragment.newInstance());
                     break;
             }
-
             return true;
         });
-
-        switchFragment(MemoFragment.newInstance());
+        switchFragment(FirstFragment.newInstance());
     }
 
     private void switchFragment(Fragment fragment){
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        //transaction.replace(R.id.frame_main, fragment);
+        transaction.replace(R.id.frame_main, fragment);
         transaction.commit();
     }
 }
