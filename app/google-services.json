@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "25016839949",
+    "firebase_url": "https://edcan-project-shareform.firebaseio.com",
+    "project_id": "edcan-project-shareform",
+    "storage_bucket": "edcan-project-shareform.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:25016839949:android:ccf3652b44721cc9bd4a44",
+        "android_client_info": {
+          "package_name": "com.edcan.shareformproject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "25016839949-hi521lr0dat0gmhu53vol8ujddspos1m.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.edcan.shareformproject",
+            "certificate_hash": "4755ca95d1074115ec9653d2fc0e752a89e9d5cc"
+          }
+        },
+        {
+          "client_id": "25016839949-5bd97g40ei23i9n7gptsv7bl1gd9i2kc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCBTDqkGGwUFUlFqTf1t6P2NdPV14MBLz4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "25016839949-1mt30dlk54faqi6thuc96hcn87l72n63.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
