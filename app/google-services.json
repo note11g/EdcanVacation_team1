@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "263167387821",
+    "firebase_url": "https://edcan-project.firebaseio.com",
+    "project_id": "edcan-project",
+    "storage_bucket": "edcan-project.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:263167387821:android:1af25d434aac80a04efe24",
+        "android_client_info": {
+          "package_name": "com.example.edcan_project_shareform"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "263167387821-fp53ecs0vpsvae14smudefmh6kmraqu5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDY7qxVEJ7-KiVYt2B64p9GXoP4u-T80KI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "263167387821-fp53ecs0vpsvae14smudefmh6kmraqu5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
