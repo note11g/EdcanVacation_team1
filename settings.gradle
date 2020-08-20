@@ -1,2 +1,0 @@
-include ':app'
-rootProject.name = "EDCAN_PROJECT_SHAREFORM"
