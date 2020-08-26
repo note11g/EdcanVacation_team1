@@ -21,6 +21,9 @@ public class NowShareFragment extends Fragment {
         return new NowShareFragment();
     }
 
+    
+
+
     private Context mContext;
 
     private FragmentNowshareBinding binding;
@@ -38,3 +41,4 @@ public class NowShareFragment extends Fragment {
         return binding.getRoot();
     }
 }
+

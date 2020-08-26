@@ -11,4 +11,14 @@
         <item name="android:fontFamily">@font/nanumsquareeb</item>
     </style>
 
+    <style name="TitleBarTextAppearance" parent="android:TextAppearance">
+        <item name="android:fontFamily">@font/nanumsquareroundeb</item>
+        <item name="android:textSize">24sp</item>
+    </style>
+
+    <style name="ChatTitle" parent="android:TextAppearance">
+        <item name="android:fontFamily">@font/nanumsquarer</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
 </resources>

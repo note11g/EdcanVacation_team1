@@ -11,7 +11,7 @@
         android:id="@+id/appCompatImageView"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:src="@drawable/temp_logo"
+        android:src="@drawable/shareformlogo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -19,11 +19,12 @@
         app:layout_constraintVertical_chainStyle="packed"/>
 
     <TextView
+        android:textColor="#7C4DFF"
         android:id="@+id/txt_splash"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/nanumsquareb"
-        android:text="SharID"
+        android:text="Share form"
         android:textSize="20dp"
         android:layout_marginTop="16dp"
         app:layout_constraintBottom_toBottomOf="parent"

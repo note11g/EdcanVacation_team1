@@ -4,24 +4,39 @@
     xmlns:android="http://schemas.android.com/apk/res/android" >
     <data>
 
+    <import type="androidx.databinding.ObservableArrayList" />
+
+    <import type="com.edcan.shareformproject" />
+
+    <variable
+        name="items"
+        type="ObservableArrayList&lt;ChatModel&gt;" />
+
     </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/nanumsquareb"
-            android:gravity="center"
-            android:text="공유현황 화면"
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="16sp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:background="@android:color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:title="채팅"
+            app:titleTextAppearance="@style/TitleBarTextAppearance" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_chat"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar"
+            app:memoItem="@{items}"
+            tools:listitem="@layout/row_chat" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
