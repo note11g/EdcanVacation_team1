@@ -35,10 +35,8 @@ public class GoogleLoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_google_login);
+        setContentView(R.layout.activity_google_login);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_google_login);
-        binding.setActivity(this);
-
         mAuth = FirebaseAuth.getInstance();
 
         if (mAuth.getCurrentUser() != null) {
@@ -106,11 +104,5 @@ public class GoogleLoginActivity extends AppCompatActivity {
             startActivity(intent);
             finish();
         }
-    }
-
-    public void skip(){
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
-        finish();
     }
 }
