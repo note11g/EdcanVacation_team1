@@ -6,7 +6,7 @@
 
     <import type="androidx.databinding.ObservableArrayList" />
 
-    <import type="com.edcan.shareformproject" />
+    <import type="com.edcan.shareformproject.ChatModel" />
 
     <variable
         name="items"
@@ -35,8 +35,7 @@
             android:layout_height="0dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/toolbar"
-            app:memoItem="@{items}"
-            tools:listitem="@layout/row_chat" />
+             />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
