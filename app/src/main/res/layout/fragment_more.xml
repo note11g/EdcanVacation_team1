@@ -6,6 +6,12 @@
         <variable
             name="name"
             type="String" />
+        <variable
+            name="uid"
+            type="String" />
+        <variable
+            name="profileImgLink"
+            type="String" />
 
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -33,19 +39,20 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/toolbar_more">
 
-            <ImageView
+            <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/img_more_profile"
                 android:layout_width="72dp"
                 android:layout_height="72dp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                imageLink="@{profileImgLink}"/>
 
             <TextView
                 android:id="@+id/txt_more_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:text="@{ name, default=`name`}"
+                android:layout_marginStart="12dp"
+                android:text="@{name}"
                 app:layout_constraintBottom_toTopOf="@id/txt_more_gotoprofile"
                 app:layout_constraintStart_toEndOf="@+id/img_more_profile"
                 app:layout_constraintTop_toTopOf="@+id/img_more_profile"
@@ -55,7 +62,7 @@
                 android:id="@+id/txt_more_gotoprofile"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="프로필 보기"
+                android:text="@{uid, default=``}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/txt_more_name"
                 app:layout_constraintTop_toBottomOf="@+id/txt_more_name" />

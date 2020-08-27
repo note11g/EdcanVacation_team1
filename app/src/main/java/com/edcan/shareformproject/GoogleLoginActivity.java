@@ -102,7 +102,7 @@ public class GoogleLoginActivity extends AppCompatActivity {
 
     private void updateUI(FirebaseUser user) { //update ui code here
         if (user != null) {
-            Intent intent = new Intent(this, MainActivity.class);
+            Intent intent = new Intent(this, getPermissonActivity.class);
             startActivity(intent);
             finish();
         }
