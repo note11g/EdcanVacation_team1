@@ -76,6 +76,7 @@ public class GoogleLoginActivity extends AppCompatActivity {
                 firebaseAuthWithGoogle(account);
             } catch (ApiException e) {
                 Toast.makeText(this, "error:"+e, Toast.LENGTH_SHORT).show();
+                e.printStackTrace();
             }
         }
     }

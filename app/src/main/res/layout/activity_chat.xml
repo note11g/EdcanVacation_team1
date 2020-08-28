@@ -5,9 +5,17 @@
 
     <data>
 
+        <import type="androidx.databinding.ObservableArrayList" />
+
+        <import type="com.edcan.shareformproject.ChatModel" />
+
         <variable
-            name="chat"
-            type="com.edcan.shareformproject.ChatModel" />
+            name="items"
+            type="ObservableArrayList&lt;ChatModel&gt;" />
+
+        <variable
+            name="room"
+            type="String" />
 
     </data>
 
@@ -27,7 +35,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:menu="@menu/menu_chat"
             app:navigationIcon="@drawable/ic_baseline_arrow_back_24"
-            app:title="@{chat.email, default=`Name`}"
+            app:title="@{room, default=`Room Name`}"
             app:titleTextAppearance="@style/ChatTitle"
             app:titleTextColor="@android:color/white" />
 

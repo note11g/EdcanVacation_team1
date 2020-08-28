@@ -48,6 +48,7 @@ public class userMoreInfoInputActivity extends AppCompatActivity {
 
         String name = user.getDisplayName();
         String uid = user.getUid();
+        String profile = user.getPhotoUrl().toString();
 
         binding = DataBindingUtil.setContentView(this,R.layout.activity_user_more_info_input);
         binding.setNick(name);
@@ -57,7 +58,7 @@ public class userMoreInfoInputActivity extends AppCompatActivity {
         binding.setUid(uid);
 
         //스피너 처리
-        spinner = (Spinner)findViewById(R.id.selc_bank_moreInfoReg);
+        spinner = findViewById(R.id.selc_bank_moreInfoReg);
 
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -69,12 +70,12 @@ public class userMoreInfoInputActivity extends AppCompatActivity {
         });
 
         binding.btnMoreInfoReg.setOnClickListener(view -> {
-            register(binding.getNick(), binding.getPhoneNum(), binding.getBankName(), binding.getBankAcc(), binding.getBankAccCheck(), uid);
+            register(binding.getNick(), binding.getPhoneNum(), binding.getBankName(), binding.getBankAcc(), binding.getBankAccCheck(), uid, profile);
         });
 
     }
 
-    private void register(String nick, String phoneNum, String bankName, String bankAcc, String bankAccCheck, String uid){
+    private void register(String nick, String phoneNum, String bankName, String bankAcc, String bankAccCheck, String uid, String profile){
 
         if(nick.isEmpty()||phoneNum.isEmpty()||bankName.isEmpty()||bankAcc.isEmpty()||bankAccCheck.isEmpty()){
             Toast.makeText(this, "입력하지 않은 정보가 있습니다", Toast.LENGTH_SHORT).show();
@@ -93,9 +94,9 @@ public class userMoreInfoInputActivity extends AppCompatActivity {
         firebaseFirestore
                 .collection("userInfo")
                 .document(uid)
-                .set(new UserModel(nick, phoneNum, bankName, bankAcc, uid))
+                .set(new UserModel(nick, phoneNum, bankName, bankAcc, uid, profile))
                 .addOnSuccessListener(runnable -> {
-                    UserCache.setUser(this, new UserModel(nick, finalPhoneNum, bankName, bankAcc, uid));
+                    UserCache.setUser(this, new UserModel(nick, finalPhoneNum, bankName, bankAcc, uid, profile));
                     Toast.makeText(this, "축하드려요! 회원가입 되셨습니다:)", Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(this, MainActivity.class));
                     finish();

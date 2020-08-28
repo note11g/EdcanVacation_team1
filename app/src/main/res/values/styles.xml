@@ -5,11 +5,12 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="actionOverflowButtonStyle">@style/ActionOverflowButtonStyle</item>
     </style>
 
     <style name="ToolbarTheme" parent="ThemeOverlay.AppCompat.Light">
         <item name="android:fontFamily">@font/nanumsquareeb</item>
+        <item name="colorControlNormal">@android:color/white</item>
+        <item name="android:textColorSecondary">@android:color/white</item>
     </style>
 
     <style name="TitleBarTextAppearance" parent="android:TextAppearance">
@@ -20,10 +21,6 @@
     <style name="ChatTitle" parent="android:TextAppearance">
         <item name="android:fontFamily">@font/nanumsquarer</item>
         <item name="android:textSize">18sp</item>
-    </style>
-    
-    <style name="ActionOverflowButtonStyle" parent="Widget.AppCompat.ActionButton.Overflow">
-        <item name="android:tint">@android:color/white</item>
     </style>
 
     <style name="BottomNavigationTheme" parent="Theme.AppCompat.Light">
