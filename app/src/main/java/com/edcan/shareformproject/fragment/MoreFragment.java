@@ -1,36 +1,27 @@
-package com.edcan.shareformproject;
+package com.edcan.shareformproject.fragment;
 
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.databinding.BindingAdapter;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 
-import com.edcan.shareformproject.databinding.FragmentHomeBinding;
+import com.edcan.shareformproject.GoogleLoginActivity;
+import com.edcan.shareformproject.R;
+import com.edcan.shareformproject.util.UserCache;
 import com.edcan.shareformproject.databinding.FragmentMoreBinding;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
-
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
 
 
 public class MoreFragment extends Fragment {

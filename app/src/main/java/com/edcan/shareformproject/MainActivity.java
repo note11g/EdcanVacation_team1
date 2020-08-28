@@ -8,6 +8,10 @@ import androidx.fragment.app.FragmentTransaction;
 import android.os.Bundle;
 
 import com.edcan.shareformproject.databinding.ActivityMainBinding;
+import com.edcan.shareformproject.fragment.ExploreFragment;
+import com.edcan.shareformproject.fragment.HomeFragment;
+import com.edcan.shareformproject.fragment.MoreFragment;
+import com.edcan.shareformproject.fragment.NowShareFragment;
 
 public class MainActivity extends AppCompatActivity {
 

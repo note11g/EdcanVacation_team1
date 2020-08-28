@@ -1,9 +1,10 @@
-package com.edcan.shareformproject;
+package com.edcan.shareformproject.util;
 
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
+import com.edcan.shareformproject.model.UserModel;
 import com.google.gson.Gson;
 
 public class UserCache {

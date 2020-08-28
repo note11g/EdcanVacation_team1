@@ -1,4 +1,4 @@
-package com.edcan.shareformproject;
+package com.edcan.shareformproject.model;
 
 public class UserModel {
 

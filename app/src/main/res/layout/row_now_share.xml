@@ -5,21 +5,22 @@
     <data>
 
         <variable
-            name="model"
-            type="com.edcan.shareformproject.ChatModel" />
+            name="item"
+            type="com.edcan.shareformproject.model.NowShareModel" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="16dp">
+        android:paddingHorizontal="16dp">
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/img_row_chat_profile"
             android:layout_width="58dp"
             android:layout_height="58dp"
             android:src="@color/colorPrimary"
-            app:imageLink="@{model.from.profile}"
+            app:imageLink="@{item.image}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -28,11 +29,12 @@
             android:id="@+id/txt_row_chat_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="12dp"
             android:fontFamily="@font/apple_sd_gothic_neo_h"
-            android:text="@{model.from.nick, default=`Username`}"
+            android:includeFontPadding="false"
+            android:text="@{item.name, default=`Username`}"
             android:textColor="@color/materialDarkBlack"
-            android:textSize="16sp"
+            android:textSize="18sp"
             app:layout_constrainedWidth="true"
             app:layout_constraintBottom_toTopOf="@id/txt_row_chat_text"
             app:layout_constraintStart_toEndOf="@+id/img_row_chat_profile"
@@ -44,13 +46,24 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/apple_sd_gothic_neo_r"
-            android:text="@{model.text, default=`text message`}"
+            android:includeFontPadding="false"
+            android:text="@{item.text, default=`text message`}"
             android:textColor="@color/materialGray7"
             android:textSize="16sp"
             app:layout_constrainedWidth="true"
             app:layout_constraintBottom_toBottomOf="@+id/img_row_chat_profile"
             app:layout_constraintStart_toStartOf="@+id/txt_row_chat_name"
             app:layout_constraintTop_toBottomOf="@id/txt_row_chat_name" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginTop="16dp"
+            android:background="@color/materialGray4"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/img_row_chat_profile" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
