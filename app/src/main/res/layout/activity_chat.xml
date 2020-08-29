@@ -5,18 +5,35 @@
 
     <data>
 
+        <import type="androidx.databinding.ObservableArrayList" />
+
+        <import type="com.edcan.shareformproject.model.ChatModel" />
+
         <variable
-            name="chat"
-            type="com.edcan.shareformproject.ChatModel" />
+            name="items"
+            type="ObservableArrayList&lt;ChatModel&gt;" />
+
+        <variable
+            name="nowShare"
+            type="com.edcan.shareformproject.model.NowShareModel" />
+
+        <variable
+            name="text"
+            type="String" />
+
+        <variable
+            name="activity"
+            type="com.edcan.shareformproject.ChatActivity" />
 
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/materialGray0">
 
         <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
+            android:id="@+id/toolbar_chat"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="@color/colorPrimary"
@@ -27,7 +44,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:menu="@menu/menu_chat"
             app:navigationIcon="@drawable/ic_baseline_arrow_back_24"
-            app:title="@{chat.email, default=`Name`}"
+            app:title="@{nowShare.name, default=`Room Name`}"
             app:titleTextAppearance="@style/ChatTitle"
             app:titleTextColor="@android:color/white" />
 
@@ -36,8 +53,9 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:background="@color/materialGray2"
+            app:chatItem="@{items}"
             app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
-            app:layout_constraintTop_toBottomOf="@+id/toolbar"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar_chat"
             tools:listitem="@layout/row_chat_receive" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -63,8 +81,11 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:background="@null"
+                android:fontFamily="@font/apple_sd_gothic_neo_r"
                 android:hint="메시지를 입력하세요"
                 android:padding="12dp"
+                android:text="@={text}"
+                android:textColor="@color/materialGray8"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/imageView4"
                 app:layout_constraintHorizontal_bias="0.437"
@@ -75,6 +96,7 @@
                 android:id="@+id/imageView4"
                 android:layout_width="32dp"
                 android:layout_height="32dp"
+                android:onClick="@{()->activity.sendMessage(text)}"
                 android:src="@drawable/ic_baseline_send_24"
                 app:layout_constraintBottom_toBottomOf="@+id/chat_edit_txt"
                 app:layout_constraintEnd_toEndOf="parent"

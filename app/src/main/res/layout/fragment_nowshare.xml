@@ -1,16 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    xmlns:android="http://schemas.android.com/apk/res/android" >
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
     <data>
 
-    <import type="androidx.databinding.ObservableArrayList" />
+        <import type="androidx.databinding.ObservableArrayList" />
 
-    <import type="com.edcan.shareformproject.ChatModel" />
+        <import type="com.edcan.shareformproject.model.NowShareModel" />
 
-    <variable
-        name="items"
-        type="ObservableArrayList&lt;ChatModel&gt;" />
+        <variable
+            name="items"
+            type="ObservableArrayList&lt;NowShareModel&gt;" />
+
+        <variable
+            name="testUid"
+            type="String" />
 
     </data>
 
@@ -18,24 +23,32 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@android:color/white"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:title="채팅"
-            app:titleTextAppearance="@style/TitleBarTextAppearance" />
-
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_chat"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/toolbar"
-             />
+            app:layout_constraintTop_toTopOf="parent"
+            app:nowShareItem="@{items}"
+            tools:listitem="@layout/row_now_share" />
+
+        <EditText
+            android:text="@={testUid}"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="채팅을 시작할 유저의 uid 입력(테스트용)"
+            app:layout_constraintBottom_toTopOf="@+id/button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="수동으로 채팅방 생성(테스트용)"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

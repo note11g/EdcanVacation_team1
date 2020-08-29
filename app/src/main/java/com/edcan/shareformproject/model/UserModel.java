@@ -1,18 +1,18 @@
-package com.edcan.shareformproject;
+package com.edcan.shareformproject.model;
 
 public class UserModel {
 
-    private String nick, phone, bank, acc, uid;
+    private String nick, phone, bank, acc, uid, profile;
 
     public UserModel(){}
 
-
-    public UserModel(String nick, String phone, String bank, String acc, String uid) {
+    public UserModel(String nick, String phone, String bank, String acc, String uid, String profile) {
         this.nick = nick;
         this.phone = phone;
         this.bank = bank;
         this.acc = acc;
         this.uid = uid;
+        this.profile = profile;
     }
 
     public String getNick() {
@@ -53,5 +53,13 @@ public class UserModel {
 
     public void setUid(String uid) {
         this.uid = uid;
+    }
+
+    public String getProfile() {
+        return profile;
+    }
+
+    public void setProfile(String profile) {
+        this.profile = profile;
     }
 }
