@@ -15,6 +15,7 @@ import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 
+import com.edcan.shareformproject.BankAccActivity;
 import com.edcan.shareformproject.GoogleLoginActivity;
 import com.edcan.shareformproject.R;
 import com.edcan.shareformproject.util.UserCache;
@@ -56,8 +57,8 @@ public class MoreFragment extends Fragment {
             binding.setProfileImgLink("");
         }
         binding.setName(UserCache.getUser(mContext).getNick());
-        binding.setUid(UserCache.getUser(mContext).getUid());
-
+        binding.setPhoneNum(UserCache.getUser(mContext).getPhone());
+        binding.btnMoreBank.setOnClickListener(view1 -> startActivity(new Intent(mContext, BankAccActivity.class)));
         binding.btnMoreLogout.setOnClickListener(view1 -> signOut());
         binding.btnMoreRevoke.setOnClickListener(view1 -> deleteUser());
         return binding.getRoot();

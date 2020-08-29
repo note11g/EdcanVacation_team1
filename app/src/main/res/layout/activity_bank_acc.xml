@@ -49,7 +49,7 @@
             android:background="@drawable/round_box"
             android:backgroundTint="@color/bank"
             android:padding="16dp"
-            android:text="@={bankName+`\n`+bankAcc, default=`BankName\n\n\n\nbankAcc`}"
+            android:text="@{bankName+`\n\n\n\n`+bankAcc, default=`BankName\n\n\n\nbankAcc`}"
             android:textSize="20sp"
             android:textColor="@color/materialBlack"
             app:layout_constraintEnd_toEndOf="parent"
