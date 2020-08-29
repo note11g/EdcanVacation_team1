@@ -2,23 +2,29 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
+
     <data>
 
         <variable
             name="nick"
             type="String" />
+
         <variable
             name="phoneNum"
             type="String" />
+
         <variable
             name="bankAcc"
             type="String" />
+
         <variable
             name="bankAccCheck"
             type="String" />
+
         <variable
             name="bankName"
             type="String" />
+
         <variable
             name="uid"
             type="String" />
@@ -27,21 +33,43 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@android:color/white">
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/nanumsquareb"
+            android:text="추가정보 입력"
+            android:textColor="@color/materialBlack"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toTopOf="@+id/textView2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/nanumsquarel"
             android:gravity="center"
             android:text="구글계정이 연동되었어요!\n이제, 추가 정보를 입력해주세요!"
-            android:fontFamily="@font/nanumsquareb"
-            android:textSize="18sp"
+            android:textColor="@color/materialBlack"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toTopOf="@id/constraintLayout2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/constraintLayout2"/>
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+        android:layout_width="350dp"
+        android:layout_height="0.8dp"
+        android:background="@color/materialBlack"
+        app:layout_constraintBottom_toTopOf="@+id/constraintLayout2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout2"
@@ -57,12 +85,16 @@
                 android:id="@+id/edt_name_moreInfoReg"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/round_box"
+                android:backgroundTint="@color/materialGray1"
                 android:ems="10"
-                android:fontFamily="@font/nanumsquareb"
-                android:hint="닉네임"
-                android:text="@={nick}"
+                android:fontFamily="@font/nanumsquarel"
+                android:hint="이름을 입력하세요"
                 android:inputType="textPersonName"
+                android:padding="16dp"
+                android:text="@={nick}"
+                android:textSize="16sp"
                 app:layout_constraintBottom_toTopOf="@id/edt_phone_moreInfoReg"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -73,22 +105,28 @@
                 android:id="@+id/edt_phone_moreInfoReg"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/round_box"
+                android:backgroundTint="@color/materialGray1"
                 android:ems="10"
-                android:layout_marginBottom="8dp"
-                android:fontFamily="@font/nanumsquareb"
-                android:hint="전화번호"
-                android:text="@={phoneNum}"
+                android:textSize="16sp"
+                android:padding="16dp"
+                android:fontFamily="@font/nanumsquarel"
+                android:hint="전화번호를 입력하세요"
                 android:inputType="phone"
+                android:text="@={phoneNum}"
+                app:layout_constraintBottom_toTopOf="@id/selc_bank_moreInfoReg"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/edt_name_moreInfoReg"
-                app:layout_constraintBottom_toTopOf="@id/selc_bank_moreInfoReg"/>
+                app:layout_constraintTop_toBottomOf="@+id/edt_name_moreInfoReg" />
 
             <Spinner
                 android:id="@+id/selc_bank_moreInfoReg"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:layout_marginBottom="8dp"
+                android:background="@drawable/round_box"
+                android:backgroundTint="@color/materialGray1"
+                android:layout_marginBottom="20dp"
                 android:entries="@array/userInfoRegBank"
                 app:layout_constraintBottom_toTopOf="@id/edt_accNum_moreInfoReg"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -99,12 +137,16 @@
                 android:id="@+id/edt_accNum_moreInfoReg"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:backgroundTint="@color/materialGray1"
+                android:background="@drawable/round_box"
+                android:padding="16dp"
+                android:textSize="16sp"
                 android:ems="10"
-                android:layout_marginBottom="8dp"
-                android:fontFamily="@font/nanumsquareb"
+                android:fontFamily="@font/nanumsquarel"
                 android:hint="@{bankName+` 계좌번호`}"
-                android:text="@={bankAcc}"
                 android:inputType="number"
+                android:text="@={bankAcc}"
                 app:layout_constraintBottom_toTopOf="@id/edt_accNumCheck_moreInfoReg"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -115,23 +157,31 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:fontFamily="@font/nanumsquareb"
+                android:fontFamily="@font/nanumsquarel"
                 android:hint="계좌번호 확인"
                 android:inputType="number"
+                android:background="@drawable/round_box"
+                android:backgroundTint="@color/materialGray1"
+                android:padding="16dp"
                 android:text="@={bankAccCheck}"
+                android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/edt_accNum_moreInfoReg"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/edt_accNum_moreInfoReg" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <Button
             android:id="@+id/btn_moreInfoReg"
-            android:layout_width="wrap_content"
+            android:layout_width="120dp"
             android:layout_height="wrap_content"
-            android:text="완료"
             android:fontFamily="@font/nanumsquareb"
+            android:backgroundTint="@color/colorPrimary"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            android:padding="18dp"
+            android:text="완료"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

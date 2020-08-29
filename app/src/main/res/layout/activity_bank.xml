@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="bankAcc"
+            type="String" />
+
+        <variable
+            name="bankName"
+            type="String" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/bank_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="80dp"
+            android:fontFamily="@font/nanumsquareb"
+            android:text="계좌 관리"
+            android:textColor="@color/materialBlack"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.175"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/bank_view1"
+            android:layout_width="300dp"
+            android:layout_height="0.8dp"
+            android:layout_marginTop="8dp"
+            android:background="@color/materialBlack"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.495"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/bank_edit"/>
+
+        <TextView
+            android:layout_width="240dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/round_box"
+            android:backgroundTint="@color/bank"
+            android:padding="16dp"
+            android:text="@={bankName+`\n`+bankAcc, default=`BankName\n\n\n\nbankAcc`}"
+            android:textSize="20sp"
+            android:textColor="@color/materialBlack"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bank_view1"
+            android:elevation="5dp"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
