@@ -4,14 +4,17 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.edcan.shareformproject.databinding.ActivityBankBinding;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 public class BankActivity extends AppCompatActivity {
+    private ActivityBankBinding binding;
     private FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
     private FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
     private FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
