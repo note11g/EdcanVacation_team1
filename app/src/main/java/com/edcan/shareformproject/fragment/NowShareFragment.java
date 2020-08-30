@@ -114,7 +114,11 @@ public class NowShareFragment extends Fragment {
                 .whereEqualTo("uid", uid)
                 .get()
                 .addOnSuccessListener(queryDocumentSnapshots -> {
-                    UserModel user = queryDocumentSnapshots.getDocuments().get(0).toObject(UserModel.class);
+                    List<DocumentSnapshot> D = queryDocumentSnapshots.getDocuments();
+                    if(D.size()==0)
+                        return;
+                    UserModel user = D.get(0).toObject(UserModel.class);
+
                     if (user == null) return;
 
                     model.setImage(user.getProfile());

@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="nick"
+            type="String" />
+
+        <variable
+            name="phoneNum"
+            type="String" />
+
+        <variable
+            name="bankAcc"
+            type="String" />
+
+        <variable
+            name="bankAccCheck"
+            type="String" />
+
+        <variable
+            name="bankName"
+            type="String" />
+
+        <variable
+            name="uid"
+            type="String" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/txt1_edtUserInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="80dp"
+            android:fontFamily="@font/nanumsquareb"
+            android:text="회원정보 수정"
+            android:textColor="@color/materialBlack"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.175"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/view1_edtUserInfo"/>
+
+        <View
+            android:id="@+id/view1_edtUserInfo"
+            android:layout_width="300dp"
+            android:layout_height="0.8dp"
+            android:layout_marginTop="8dp"
+            android:background="@color/materialBlack"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/constraintLayout_edtUserInfo"
+            app:layout_constraintTop_toBottomOf="@id/txt1_edtUserInfo"
+            app:layout_constraintVertical_chainStyle="packed"/>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout_edtUserInfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="64dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="28dp"
+            app:layout_constraintHorizontal_bias="0.687"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view1_edtUserInfo">
+
+            <EditText
+                android:id="@+id/edt_name_edtUserInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/round_box"
+                android:backgroundTint="@color/materialGray1"
+                android:ems="10"
+                android:fontFamily="@font/nanumsquarel"
+                android:hint="이름을 입력하세요"
+                android:inputType="textPersonName"
+                android:padding="16dp"
+                android:text="@={nick}"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toTopOf="@id/edt_phone_edtUserInfo"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <EditText
+                android:id="@+id/edt_phone_edtUserInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/round_box"
+                android:backgroundTint="@color/materialGray1"
+                android:ems="10"
+                android:fontFamily="@font/nanumsquarel"
+                android:hint="전화번호를 입력하세요"
+                android:inputType="phone"
+                android:padding="16dp"
+                android:text="@={phoneNum}"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toTopOf="@id/selc_bank_edtUserInfo"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/edt_name_edtUserInfo" />
+
+            <Spinner
+                android:id="@+id/selc_bank_edtUserInfo"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/round_box"
+                android:backgroundTint="@color/materialGray1"
+                android:entries="@array/userInfoRegBank"
+                app:layout_constraintBottom_toTopOf="@id/edt_accNum_edtUserInfo"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/edt_phone_edtUserInfo" />
+
+            <EditText
+                android:id="@+id/edt_accNum_edtUserInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/round_box"
+                android:backgroundTint="@color/materialGray1"
+                android:ems="10"
+                android:fontFamily="@font/nanumsquarel"
+                android:hint="@{bankName+` 계좌번호`}"
+                android:inputType="number"
+                android:padding="16dp"
+                android:text="@={bankAcc}"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toTopOf="@id/edt_accNumCheck_edtUserInfo"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/selc_bank_edtUserInfo" />
+
+            <EditText
+                android:id="@+id/edt_accNumCheck_edtUserInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/round_box"
+                android:backgroundTint="@color/materialGray1"
+                android:ems="10"
+                android:fontFamily="@font/nanumsquarel"
+                android:hint="계좌번호 확인"
+                android:inputType="number"
+                android:padding="16dp"
+                android:text="@={bankAccCheck}"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/edt_accNum_edtUserInfo" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <Button
+            android:id="@+id/btn_edt_edtUserInfo"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/colorPrimary"
+            android:fontFamily="@font/nanumsquareb"
+            android:padding="18dp"
+            android:text="수정"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout_edtUserInfo" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

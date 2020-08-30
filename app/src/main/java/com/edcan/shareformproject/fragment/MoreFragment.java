@@ -16,6 +16,7 @@ import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 
 import com.edcan.shareformproject.BankAccActivity;
+import com.edcan.shareformproject.EditUserInfoActivity;
 import com.edcan.shareformproject.GoogleLoginActivity;
 import com.edcan.shareformproject.R;
 import com.edcan.shareformproject.util.UserCache;
@@ -34,7 +35,7 @@ public class MoreFragment extends Fragment {
     private Context mContext;
     private FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
     private FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
-    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+    //FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
     private FragmentMoreBinding binding;
 
 
@@ -50,14 +51,17 @@ public class MoreFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_more, container,false);
 
-        if (user != null){
-            Uri photoUrl = user.getPhotoUrl();
-            binding.setProfileImgLink(photoUrl.toString());
-        }else{
-            binding.setProfileImgLink("");
-        }
+//        if (user != null){
+//            Uri photoUrl = user.getPhotoUrl();
+//            binding.setProfileImgLink(photoUrl.toString());
+//        }else{
+//            binding.setProfileImgLink("");
+//        }
+        binding.setProfileImgLink(UserCache.getUser(mContext).getProfile());
         binding.setName(UserCache.getUser(mContext).getNick());
         binding.setPhoneNum(UserCache.getUser(mContext).getPhone());
+        //여기에 버튼 바인딩 넣기
+        binding.btnMoreInfoedit.setOnClickListener(view1 -> startActivity(new Intent(mContext, EditUserInfoActivity.class)));
         binding.btnMoreBank.setOnClickListener(view1 -> startActivity(new Intent(mContext, BankAccActivity.class)));
         binding.btnMoreLogout.setOnClickListener(view1 -> signOut());
         binding.btnMoreRevoke.setOnClickListener(view1 -> deleteUser());

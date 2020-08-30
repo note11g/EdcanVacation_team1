@@ -43,19 +43,31 @@
             app:layout_constraintTop_toBottomOf="@id/bank_edit"/>
 
         <TextView
+            android:id="@+id/textView8"
             android:layout_width="240dp"
             android:layout_height="150dp"
             android:layout_marginTop="30dp"
             android:background="@drawable/round_box"
             android:backgroundTint="@color/bank"
+            android:elevation="5dp"
             android:padding="16dp"
             android:text="@{bankName+`\n\n\n\n`+bankAcc, default=`BankName\n\n\n\nbankAcc`}"
-            android:textSize="20sp"
             android:textColor="@color/materialBlack"
+            android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/bank_view1"
-            android:elevation="5dp"/>
+            app:layout_constraintTop_toBottomOf="@+id/bank_view1" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/nanumsquareeb"
+            android:text="tip : 계좌 변경은 회원정보 수정에서 할 수 있어요!"
+            android:textColor="@color/colorAccent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

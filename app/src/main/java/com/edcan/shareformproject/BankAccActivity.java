@@ -18,9 +18,7 @@ public class BankAccActivity extends AppCompatActivity {
         setContentView(R.layout.activity_bank_acc);
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_bank_acc);
-
         binding.setBankName(UserCache.getUser(this).getBank());
         binding.setBankAcc(UserCache.getUser(this).getAcc());
-
     }
 }
