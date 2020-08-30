@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ObservableArrayList;
 import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.edcan.shareformproject.adapter.ChatAdapter;
 import com.edcan.shareformproject.databinding.ActivityChatBinding;
@@ -17,6 +18,9 @@ import com.edcan.shareformproject.util.TimeUtil;
 import com.edcan.shareformproject.util.UserCache;
 import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
+
+import gun0912.tedkeyboardobserver.BaseKeyboardObserver;
+import gun0912.tedkeyboardobserver.TedKeyboardObserver;
 
 public class ChatActivity extends AppCompatActivity {
 
@@ -48,6 +52,10 @@ public class ChatActivity extends AppCompatActivity {
         ChatAdapter adapter = new ChatAdapter(UserCache.getUser(this).getUid());
         binding.recyclerView.setAdapter(adapter);
 
+        //scroll to bottom when keyboard up
+        new TedKeyboardObserver(this).listen((BaseKeyboardObserver.OnKeyboardListener) isShow ->
+                scrollRecyclerToPosition(binding.recyclerView, items.size()-1));
+
         firebaseFirestore
                 .collection("personal_chat")
                 .document(nowShareModel.getRoom())
@@ -63,6 +71,7 @@ public class ChatActivity extends AppCompatActivity {
                     NowShareModel model = value.toObject(NowShareModel.class);
                     if (model == null) return;
                     items.addAll(model.getMessage());
+                    scrollRecyclerToPosition(binding.recyclerView, items.size()-1);
                 });
     }
 
@@ -80,5 +89,9 @@ public class ChatActivity extends AppCompatActivity {
                 .collection("personal_chat")
                 .document(nowShareModel.getRoom())
                 .update("message", FieldValue.arrayUnion(ChatModel.toMap(model)));
+    }
+
+    private void scrollRecyclerToPosition(RecyclerView rcv, int pos){
+        rcv.smoothScrollToPosition(pos);
     }
 }
