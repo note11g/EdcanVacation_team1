@@ -13,6 +13,7 @@
             name="image"
             type="String" />
 
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -22,10 +23,9 @@
 
         <ImageView
             android:id="@+id/img_row_explore"
+            android:src="@{image, default=`@drawable/netflix_logo`}"
             android:layout_width="84dp"
             android:layout_height="84dp"
-            android:src="@color/colorPrimary"
-            app:imageLink="@{image}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

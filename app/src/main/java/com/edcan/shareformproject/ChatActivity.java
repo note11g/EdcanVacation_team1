@@ -53,6 +53,7 @@ public class ChatActivity extends AppCompatActivity {
         binding.recyclerView.setAdapter(adapter);
 
         //scroll to bottom when keyboard up
+        if(items.size()!=0)
         new TedKeyboardObserver(this).listen((BaseKeyboardObserver.OnKeyboardListener) isShow ->
                 scrollRecyclerToPosition(binding.recyclerView, items.size()-1));
 
@@ -71,6 +72,7 @@ public class ChatActivity extends AppCompatActivity {
                     NowShareModel model = value.toObject(NowShareModel.class);
                     if (model == null) return;
                     items.addAll(model.getMessage());
+                    if(items.size()!=0)
                     scrollRecyclerToPosition(binding.recyclerView, items.size()-1);
                 });
     }
@@ -91,6 +93,7 @@ public class ChatActivity extends AppCompatActivity {
                 .update("message", FieldValue.arrayUnion(ChatModel.toMap(model)));
     }
 
+    @Nullable
     private void scrollRecyclerToPosition(RecyclerView rcv, int pos){
         rcv.smoothScrollToPosition(pos);
     }

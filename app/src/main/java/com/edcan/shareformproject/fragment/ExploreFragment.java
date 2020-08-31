@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -41,6 +42,8 @@ public class ExploreFragment extends Fragment {
     private FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
     private Context mContext;
     private FragmentExploreBinding binding;
+    private RowExploreBinding binding1;
+
 
     @Override
     public void onAttach(@NonNull Context context) {
@@ -52,9 +55,11 @@ public class ExploreFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_explore, container, false);
-        RowExploreBinding binding1 = DataBindingUtil.inflate(inflater, R.layout.row_explore, container, false);
+        binding1 = DataBindingUtil.inflate(inflater, R.layout. row_explore, container, false);
 
-        binding1.setImage("https://lh5.googleusercontent.com/-jz0KUNv0XUA/AAAAAAAAAAI/AAAAAAAAAAA/AMZuucm_16-1ISZW83yKFYXNIm4QVMsUiA/s96-c/photo.jpg");
+        binding1.setImage("@drawable/netflix_logo");
+
+
 
         binding.recyclerExplore.setLayoutManager(
                 new LinearLayoutManager(mContext, LinearLayoutManager.VERTICAL, false)
@@ -88,6 +93,7 @@ public class ExploreFragment extends Fragment {
     }
 
     private void getPosts(){
+
         items1.clear();
         firebaseFirestore
                 .collection("post")
