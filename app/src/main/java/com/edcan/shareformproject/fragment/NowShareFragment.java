@@ -129,7 +129,7 @@ public class NowShareFragment extends Fragment {
     }
 
     //테스트용 코드, 참고해도 됨
-    private void createChatRoom(String uid) {
+    public void createChatRoom(String uid) {
 
         List<String> member = new ArrayList<>();
         member.add(uid);

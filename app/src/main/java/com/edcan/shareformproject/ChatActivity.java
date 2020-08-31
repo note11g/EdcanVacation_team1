@@ -1,6 +1,7 @@
 package com.edcan.shareformproject;
 
 import android.os.Bundle;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -31,9 +32,12 @@ public class ChatActivity extends AppCompatActivity {
 
     private ActivityChatBinding binding;
 
+    String roomId;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         binding = DataBindingUtil.setContentView(this, R.layout.activity_chat);
         binding.setItems(items);
         binding.setActivity(this);
@@ -42,8 +46,19 @@ public class ChatActivity extends AppCompatActivity {
         binding.toolbarChat.setNavigationOnClickListener(v -> finish());
 
         nowShareModel = (NowShareModel) getIntent().getSerializableExtra("now_share");
-        if (nowShareModel == null) return;
-        binding.setNowShare(nowShareModel);
+        if (nowShareModel == null) {
+            roomId = myUidAndYourUid();
+            NowShareModel nowShareModel1 = new NowShareModel();
+            nowShareModel1.setName(getNick());
+            Toast.makeText(this, "카카오톡, 문자 등의 메신저로의 유도는 사기일 수 있습니다.\n주의해주세요.", Toast.LENGTH_SHORT).show();
+            binding.setNowShare(nowShareModel1);
+        }else{
+            roomId = nowShareModel.getRoom();
+            binding.setNowShare(nowShareModel);
+        }
+
+
+
 
         LinearLayoutManagerWrapper wrapper = new LinearLayoutManagerWrapper(
                 this, LinearLayoutManager.VERTICAL, false);
@@ -59,13 +74,13 @@ public class ChatActivity extends AppCompatActivity {
 
         firebaseFirestore
                 .collection("personal_chat")
-                .document(nowShareModel.getRoom())
+                .document(roomId)
                 .addSnapshotListener((value, error) -> {
                     if (error != null) {
                         error.printStackTrace();
                         return;
                     }
-                    if (value == null) return;
+                    if (value == null) {return;}
 
                     items.clear();
 
@@ -89,12 +104,19 @@ public class ChatActivity extends AppCompatActivity {
 
         firebaseFirestore
                 .collection("personal_chat")
-                .document(nowShareModel.getRoom())
+                .document(roomId)
                 .update("message", FieldValue.arrayUnion(ChatModel.toMap(model)));
     }
 
     @Nullable
     private void scrollRecyclerToPosition(RecyclerView rcv, int pos){
         rcv.smoothScrollToPosition(pos);
+    }
+
+    private String myUidAndYourUid(){
+        return getIntent().getStringExtra("roomId");
+    }
+    private String getNick(){
+        return getIntent().getStringExtra("nick");
     }
 }
