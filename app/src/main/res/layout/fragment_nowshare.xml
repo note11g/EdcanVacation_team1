@@ -32,23 +32,7 @@
             app:nowShareItem="@{items}"
             tools:listitem="@layout/row_now_share" />
 
-        <EditText
-            android:text="@={testUid}"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="채팅을 시작할 유저의 uid 입력(테스트용)"
-            app:layout_constraintBottom_toTopOf="@+id/button"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
 
-        <Button
-            android:id="@+id/button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="수동으로 채팅방 생성(테스트용)"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
