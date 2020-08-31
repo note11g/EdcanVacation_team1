@@ -23,12 +23,13 @@
 
         <ImageView
             android:id="@+id/img_row_explore"
-            android:src="@{image, default=`@drawable/youtube`}"
+            android:src="@drawable/youtube"
             android:layout_width="84dp"
             android:layout_height="84dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            imageLink="https://lh3.googleusercontent.com/a-/AOh14GhHao-SKckfagxW70-elg5LrZB0Z5xXF5nPhgDJ=s96-c"/>
 
         <TextView
             android:id="@+id/txt_row_explore_platform_name"

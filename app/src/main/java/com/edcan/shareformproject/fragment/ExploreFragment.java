@@ -65,6 +65,7 @@ public class ExploreFragment extends Fragment {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_explore, container, false);
         binding1 = DataBindingUtil.inflate(inflater, R.layout. row_explore, container, false);
 
+//        binding1.setImage("http://lh3.googleusercontent.com/a-/AOh14GhHao-SKckfagxW70-elg5LrZB0Z5xXF5nPhgDJ=s96-c");
 
 
         binding.selcGroupExplore.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -79,7 +80,6 @@ public class ExploreFragment extends Fragment {
                         getPosts();
                     }
                 }
-                Toast.makeText(mContext, "spin1: "+spin1, Toast.LENGTH_SHORT).show();
             }
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {}
@@ -151,19 +151,16 @@ public class ExploreFragment extends Fragment {
 
     private void getPosts(String input){
 
+//        if(input.equals("넷플릭스")){
+//            Re+="netflix";
+//        }else if(input.equals("왓챠")){
+//            Re+="watcha";
+//        }else if(input.equals("유튜브 프리미엄")){
+//            Re+="youtube";
+//        }else if(input.equals("웨이브")){
+//            Re+="wavve";
+//        }
 
-
-        if(input.equals("넷플릭스")){
-            Re+="netflix";
-        }else if(input.equals("왓챠")){
-            Re+="watcha";
-        }else if(input.equals("유튜브 프리미엄")){
-            Re+="youtube";
-        }else if(input.equals("웨이브")){
-            Re+="wavve";
-        }
-
-        binding1.setImage(Re);
 
         items1.clear();
         firebaseFirestore

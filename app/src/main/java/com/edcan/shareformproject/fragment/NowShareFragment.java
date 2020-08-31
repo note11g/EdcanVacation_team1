@@ -85,7 +85,6 @@ public class NowShareFragment extends Fragment {
                 });
 
 
-        binding.button.setOnClickListener(view -> createChatRoom(binding.getTestUid()));
 
 
         return binding.getRoot();
