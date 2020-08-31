@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.edcan.shareformproject.model.ExploreModel" />
+
+        <variable
+            name="image"
+            type="String" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="128dp"
+        android:paddingHorizontal="16dp">
+
+        <ImageView
+            android:id="@+id/img_row_explore"
+            android:layout_width="84dp"
+            android:layout_height="84dp"
+            android:src="@color/colorPrimary"
+            app:imageLink="@{image}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txt_row_explore_platform_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="14dp"
+            android:fontFamily="@font/apple_sd_gothic_neo_h"
+            android:includeFontPadding="false"
+            android:text="@{item.platform, default=`platformName`}"
+            android:textColor="@color/materialDarkBlack"
+            android:textSize="20sp"
+            app:layout_constrainedWidth="true"
+            app:layout_constraintBottom_toTopOf="@+id/txt_row_explore_headcount_1"
+            app:layout_constraintStart_toEndOf="@+id/img_row_explore"
+            app:layout_constraintTop_toTopOf="@+id/img_row_explore"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <TextView
+            android:id="@+id/txt_row_explore_headcount_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/apple_sd_gothic_neo_r"
+            android:includeFontPadding="false"
+            android:text="모집 인원 : "
+            android:textColor="@color/materialGray7"
+            android:textSize="14sp"
+            android:layout_marginTop="4dp"
+            app:layout_constraintBottom_toTopOf="@+id/txt_row_explore_period"
+            app:layout_constraintStart_toStartOf="@+id/txt_row_explore_platform_name"
+            app:layout_constraintTop_toBottomOf="@id/txt_row_explore_platform_name"/>
+
+        <TextView
+            android:id="@+id/txt_row_explore_headcount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/apple_sd_gothic_neo_r"
+            android:includeFontPadding="false"
+            android:text="@{item.head, default=`0`}"
+            android:textColor="@color/materialGray7"
+            android:textSize="14sp"
+            app:layout_constrainedWidth="true"
+            app:layout_constraintBottom_toBottomOf="@+id/txt_row_explore_headcount_1"
+            app:layout_constraintStart_toEndOf="@+id/txt_row_explore_headcount_1"
+            app:layout_constraintTop_toTopOf="@+id/txt_row_explore_headcount_1" />
+
+        <TextView
+            android:id="@+id/txt_row_explore_period"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/apple_sd_gothic_neo_r"
+            android:includeFontPadding="false"
+            android:text="@{item.period, default=`6month`}"
+            android:textColor="@color/materialGray7"
+            android:textSize="14sp"
+            app:layout_constrainedWidth="true"
+            app:layout_constraintBottom_toTopOf="@+id/txt_row_explore_start_user_1"
+            app:layout_constraintStart_toStartOf="@+id/txt_row_explore_platform_name"
+            app:layout_constraintTop_toBottomOf="@id/txt_row_explore_headcount_1"/>
+
+        <TextView
+            android:id="@+id/txt_row_explore_start_user_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/apple_sd_gothic_neo_r"
+            android:includeFontPadding="false"
+            android:text="시작한 유저 : "
+            android:textColor="@color/materialGray7"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/img_row_explore"
+            app:layout_constraintStart_toStartOf="@+id/txt_row_explore_platform_name"
+            app:layout_constraintTop_toBottomOf="@id/txt_row_explore_period"/>
+
+        <TextView
+            android:id="@+id/txt_row_explore_start_user"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/apple_sd_gothic_neo_r"
+            android:includeFontPadding="false"
+            android:text="@{item.nick, default=`userName`}"
+            android:textColor="@color/materialGray7"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/txt_row_explore_start_user_1"
+            app:layout_constraintStart_toEndOf="@+id/txt_row_explore_start_user_1"
+            app:layout_constraintTop_toTopOf="@+id/txt_row_explore_start_user_1" />
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginTop="20dp"
+            android:background="@color/materialGray4"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/img_row_explore" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

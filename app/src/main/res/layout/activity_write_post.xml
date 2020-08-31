@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="content"
+            type="String" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/txt_title_view_post"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="36dp"
+            android:layout_marginTop="52dp"
+            android:fontFamily="@font/nanumsquareeb"
+            android:text="모집 글 추가"
+            android:textColor="@color/colorAccent"
+            android:textSize="28sp"
+            app:layout_constraintBottom_toTopOf="@id/selc_group_view_post"
+            app:layout_constraintVertical_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Spinner
+            android:id="@+id/selc_group_view_post"
+            android:layout_width="320dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="32dp"
+            android:background="@drawable/round_box"
+            android:backgroundTint="@color/materialGray1"
+            android:entries="@array/groupWrite"
+            android:paddingHorizontal="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_title_view_post"/>
+
+
+        <Spinner
+            android:id="@+id/selc_period_view_post"
+            android:layout_width="320dp"
+            android:layout_height="40dp"
+            android:background="@drawable/round_box"
+            android:backgroundTint="@color/materialGray1"
+            android:entries="@array/groupPeriod"
+            android:paddingHorizontal="16dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/selc_group_view_post" />
+
+
+        <Spinner
+            android:id="@+id/selc_head_view_post"
+            android:layout_width="320dp"
+            android:layout_height="40dp"
+            android:background="@drawable/round_box"
+            android:backgroundTint="@color/materialGray1"
+            android:entries="@array/netflixHead"
+            android:paddingHorizontal="16dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/selc_period_view_post" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginVertical="24dp"
+            android:fontFamily="@font/nanumsquareb"
+            android:text="@={content}"
+            android:gravity="start"
+            android:hint="추가 정보와 설명을 입력해주세요.\n\n다른 유저분들에게 어필하기!!!"
+            app:layout_constraintBottom_toTopOf="@+id/btn_new_post_upload"
+            app:layout_constraintEnd_toEndOf="@+id/selc_head_view_post"
+            app:layout_constraintStart_toStartOf="@+id/selc_head_view_post"
+            app:layout_constraintTop_toBottomOf="@+id/selc_head_view_post" />
+
+        <Button
+            android:id="@+id/btn_new_post_upload"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/round_box"
+            android:backgroundTint="@color/colorPrimary"
+            android:textColor="@android:color/white"
+            android:fontFamily="@font/nanumsquareb"
+            android:text="게시하기"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

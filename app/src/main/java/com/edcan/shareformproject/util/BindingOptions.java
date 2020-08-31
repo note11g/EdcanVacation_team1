@@ -11,8 +11,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.edcan.shareformproject.adapter.ChatAdapter;
+import com.edcan.shareformproject.adapter.ExploreAdapter;
 import com.edcan.shareformproject.adapter.NowShareAdapter;
 import com.edcan.shareformproject.model.ChatModel;
+import com.edcan.shareformproject.model.ExploreModel;
 import com.edcan.shareformproject.model.NowShareModel;
 
 
@@ -29,6 +31,12 @@ public class BindingOptions {
     @BindingAdapter("nowShareItem")
     public static void bindNowShareItem(RecyclerView recyclerView, ObservableArrayList<NowShareModel> items) {
         NowShareAdapter adapter = (NowShareAdapter) recyclerView.getAdapter();
+        if (adapter != null) adapter.setItem(items);
+    }
+
+    @BindingAdapter("exploreItem")
+    public static void bindExploreItem(RecyclerView recyclerView, ObservableArrayList<ExploreModel> items) {
+        ExploreAdapter adapter = (ExploreAdapter) recyclerView.getAdapter();
         if (adapter != null) adapter.setItem(items);
     }
 

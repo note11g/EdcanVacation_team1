@@ -13,4 +13,35 @@
         <item>케이뱅크</item>
         <item>카카오뱅크</item>
     </string-array>
+    <string-array name="group">
+        <item>전체 카테고리</item>
+        <item>넷플릭스</item>
+        <item>왓챠</item>
+        <item>웨이브</item>
+        <item>유튜브 프리미엄</item>
+    </string-array>
+
+    <string-array name="groupWrite">
+        <item>넷플릭스</item>
+        <item>왓챠</item>
+        <item>웨이브</item>
+        <item>유튜브 프리미엄</item>
+    </string-array>
+
+    <string-array name="groupPeriod">
+        <item>1개월</item>
+        <item>2개월</item>
+        <item>3개월</item>
+        <item>4개월</item>
+        <item>5개월</item>
+        <item>6개월</item>
+        <item>7개월</item>
+        <item>8개월</item>
+    </string-array>
+
+    <string-array name="netflixHead">
+        <item>2명</item>
+        <item>3명</item>
+        <item>4명</item>
+    </string-array>
 </resources>
