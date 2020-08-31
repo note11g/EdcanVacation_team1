@@ -23,7 +23,7 @@
 
         <ImageView
             android:id="@+id/img_row_explore"
-            android:src="@{image, default=`@drawable/netflix_logo`}"
+            android:src="@{image, default=`@drawable/youtube`}"
             android:layout_width="84dp"
             android:layout_height="84dp"
             app:layout_constraintBottom_toBottomOf="parent"
